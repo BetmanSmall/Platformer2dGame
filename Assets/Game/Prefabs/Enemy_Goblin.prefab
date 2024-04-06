@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4779955836921514188}
   - component: {fileID: 6279280963788882795}
   - component: {fileID: 1675160223952122394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,8 @@ GameObject:
   - component: {fileID: 5820195110535364652}
   - component: {fileID: 3183996642816447896}
   - component: {fileID: 5064006626890245046}
-  m_Layer: 0
+  - component: {fileID: 3043520314098468725}
+  m_Layer: 9
   m_Name: Enemy_Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -285,7 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3ec6e7f9b44f9cadebe53d3796cf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarCanvas: {fileID: 3502222815524927008}
   maxHealth: 110
 --- !u!114 &5064006626890245046
 MonoBehaviour:
@@ -301,6 +301,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
+--- !u!114 &3043520314098468725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938480784839231456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28bc916d95014978949755760c41baa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 3183996642816447896}
 --- !u!1 &4240611742083092415
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +327,7 @@ GameObject:
   - component: {fileID: 3244619794409448766}
   - component: {fileID: 5835648193985900066}
   - component: {fileID: 3502222815524927008}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,6 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthImage: {fileID: 1675160223952122394}
+  health: {fileID: 3183996642816447896}
 --- !u!1 &7563464357621918976
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +442,7 @@ GameObject:
   - component: {fileID: 4661488198276763729}
   - component: {fileID: 5244688672542760315}
   - component: {fileID: 2588638778691951029}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

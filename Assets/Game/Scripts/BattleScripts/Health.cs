@@ -1,45 +1,26 @@
-using Game.Scripts.Canvases;
 using Game.Scripts.PlayerControl;
 using UnityEngine;
+using UnityEngine.Events;
+
 namespace Game.Scripts.BattleScripts {
     [RequireComponent(typeof(AnimatorController))]
     public class Health : MonoBehaviour {
-        [SerializeField] private HealthBarCanvas healthBarCanvas;
         [SerializeField] private float maxHealth = 100f;
+        public float MaxHealth => maxHealth;
         private float currentHealth;
-        private bool isAlive;
-        private AnimatorController animatorController;
+        public float CurrentHealth => currentHealth;
+        public UnityAction<float> HealthChanged;
+        public bool IsAlive => currentHealth > 0;
 
         private void Start() {
-            animatorController = GetComponent<AnimatorController>();
+            // Debug.Log("Health::Start(); -- ");
             currentHealth = maxHealth;
-            isAlive = true;
         }
 
         public void TakeDamage(float damage) {
-            Debug.Log("TakeDamage(); -- damage:" + damage + ",go:" + gameObject, gameObject);
+            // Debug.Log("TakeDamage(); -- damage:" + damage + ",go:" + gameObject, gameObject);
             currentHealth -= damage;
-            healthBarCanvas.SetHealthFillAmount(currentHealth/maxHealth);
-            CheckIsAlive();
-            if (!isAlive) {
-                animatorController.Death();
-                if (gameObject.CompareTag("Player")) { // todo конечно, не фонтан, но по простому
-                    MainCanvas.instance.ShowLosePanel();
-                }
-                Invoke(nameof(DestroyMe), 2f);
-            }
-        }
-
-        private void CheckIsAlive() {
-            if (currentHealth > 0) {
-                isAlive = true;
-            } else {
-                isAlive = false;
-            }
-        }
-
-        private void DestroyMe() {
-            Destroy(gameObject);
+            HealthChanged.Invoke(currentHealth);
         }
     }
 }

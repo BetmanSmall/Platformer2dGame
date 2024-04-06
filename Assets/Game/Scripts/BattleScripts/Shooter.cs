@@ -12,7 +12,6 @@ namespace Game.Scripts.BattleScripts {
         }
 
         public void ChangeDirection(float direction) {
-            Debug.Log("Shooter::ChangeDirection(); -- direction:" + direction);
             if (Mathf.Abs(direction) > 0.01f) {
                 if (direction > 0) {
                     lastShootPoint = rightShootPoint;
@@ -25,7 +24,7 @@ namespace Game.Scripts.BattleScripts {
         }
 
         public void Shoot() {
-            Debug.Log("Shooter::Shoot(); -- ");
+            // Debug.Log("Shooter::Shoot(); -- ");
             GameObject currentBullet = Instantiate(bullet);
             currentBullet.tag = gameObject.tag;
             Rigidbody2D currentBulletRigidbody2D = currentBullet.GetComponent<Rigidbody2D>();
