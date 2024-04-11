@@ -10,7 +10,7 @@ namespace Game.Scripts.PlayerControl {
 
         private void HealthChanged(float currentHealth) {
             if (!health.IsAlive) {
-                MainCanvas.instance.ShowLosePanel();
+                MainCanvas.instance?.ShowLosePanel();
             }
         }
     }
