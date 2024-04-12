@@ -11,7 +11,7 @@ namespace Game.Scripts {
             layersCount = layers.Length;
         }
 
-        private void FixedUpdate() {
+        private void Update() {
             for (int k = 0; k < layersCount; k++) {
                 layers[k].position = transform.position * coefficients[k];
             }
