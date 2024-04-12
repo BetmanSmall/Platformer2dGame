@@ -9,7 +9,6 @@ namespace Game.Scripts.PlayerControl {
         public UnityAction characterDeath;
 
         protected void Start() {
-            // Debug.Log("CharacterDeath::Start(); -- ");
             if (!health) {
                 health = transform.GetComponent<Health>();
             }

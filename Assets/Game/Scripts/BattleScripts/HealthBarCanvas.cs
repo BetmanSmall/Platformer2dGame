@@ -4,7 +4,7 @@ using UnityEngine.UI;
 namespace Game.Scripts.BattleScripts {
     public class HealthBarCanvas : MonoBehaviour {
         [SerializeField] private Image healthImage;
-        [SerializeField] private Health health;
+        private Health health;
 
         private void Start() {
             if (!health) {

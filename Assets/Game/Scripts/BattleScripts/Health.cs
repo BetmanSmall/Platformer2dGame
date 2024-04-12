@@ -5,22 +5,25 @@ using UnityEngine.Events;
 namespace Game.Scripts.BattleScripts {
     [RequireComponent(typeof(AnimatorController))]
     public class Health : MonoBehaviour {
+        private float currentHealth;
         [SerializeField] private float maxHealth = 100f;
         public float MaxHealth => maxHealth;
-        private float currentHealth;
         public float CurrentHealth => currentHealth;
         public UnityAction<float> HealthChanged;
         public bool IsAlive => currentHealth > 0;
 
         private void Start() {
-            // Debug.Log("Health::Start(); -- ");
             currentHealth = maxHealth;
         }
 
-        public void TakeDamage(float damage) {
-            // Debug.Log("TakeDamage(); -- damage:" + damage + ",go:" + gameObject, gameObject);
-            currentHealth -= damage;
-            HealthChanged.Invoke(currentHealth);
+        public bool TakeDamage(float damage) {
+            if (damage > 0) {
+                currentHealth -= damage;
+                if (currentHealth < 0) currentHealth = 0;
+                HealthChanged.Invoke(currentHealth);
+                return true;
+            }
+            return false;
         }
     }
 }

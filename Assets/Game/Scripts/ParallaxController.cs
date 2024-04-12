@@ -12,8 +12,8 @@ namespace Game.Scripts {
         }
 
         private void Update() {
-            for (int k = 0; k < layersCount; k++) {
-                layers[k].position = transform.position * coefficients[k];
+            for (int i = 0; i < layersCount; i++) {
+                layers[i].position = transform.position * coefficients[i];
             }
         }
     }

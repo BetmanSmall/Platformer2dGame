@@ -24,9 +24,8 @@ namespace Game.Scripts.BattleScripts {
         }
 
         public void Shoot() {
-            // Debug.Log("Shooter::Shoot(); -- ");
             GameObject currentBullet = Instantiate(bullet);
-            currentBullet.tag = gameObject.tag;
+            currentBullet.tag = gameObject.tag; // todo 2/2 Необходим что бы Игрок не наносил сам себе урон Снарядом спавнущимся внутри его коллайдера
             Rigidbody2D currentBulletRigidbody2D = currentBullet.GetComponent<Rigidbody2D>();
             currentBullet.transform.position = lastShootPoint.position;
             currentBulletRigidbody2D.velocity = new Vector2(fireSpeed * lastShootDirection, currentBulletRigidbody2D.velocity.y);
